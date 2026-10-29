@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elyssa | Senior Portfolio</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+    :root {
+      --gold: #ffd166;
+      --orange: #ffad91;
+      --coral: #ff7b72;
+      --pink: #f5a0c5;
+      --purple: #9b78c9;
+      --dark: #35264d;
+      --cream: #fff8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--dark);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    nav {
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav ul a:hover {
+      color: var(--coral);
+    }
+
+    .hero {
+      min-height: 85vh;
+      padding: 80px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background: linear-gradient(
+        180deg,
+        #ffd166 0%,
+        #ffad91 25%,
+        #ff8ba7 48%,
+        #bd86c8 72%,
+        #594875 100%
+      );
+    }
+
+    .sun {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      top: 9%;
+      left: calc(50% - 90px);
+      border-radius: 50%;
+      background: #fff0ac;
+      box-shadow: 0 0 70px #fff0ac88;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      margin-top: 120px;
+    }
+
+    .eyebrow {
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin: 20px 0;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 30px;
+      background: white;
+      color: var(--dark);
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.25s;
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px #35264d30;
+    }
+
+    section {
+      padding: 75px 8%;
+      scroll-margin-top: 80px;
+    }
+
+    .label {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #b45f79;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+
+    .heading {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 20px;
+    }
+
+    .description {
+      max-width: 700px;
+      color: #685c72;
+      margin-bottom: 30px;
+    }
+
+    .about {
+      background: var(--cream);
+    }
+
+    .about-box {
+      padding: 30px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #ffe5d9, #f5d7e8);
+    }
+
+    .about-box p + p {
+      margin-top: 15px;
+    }
+
+    .projects {
+      background: #fff0e8;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid #f3d7d7;
+      transition: 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px #68455b18;
+    }
+
+    .project-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: #685c72;
+      margin-bottom: 15px;
+    }
+
+    .project-card a {
+      color: #a44f70;
+      font-weight: bold;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ffe5d9;
+      padding: 5px 12px;
+      margin: 3px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .skills {
+      background: linear-gradient(135deg, #f5d7e8, #e5d9f7);
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: #ffffffc9;
+      border: 1px solid white;
+      border-radius: 14px;
+      padding: 12px 18px;
+      font-weight: 600;
+    }
+
+    .future {
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .future p {
+      max-width: 650px;
+      margin: 0 auto 18px;
+      color: #685c72;
+    }
+
+    .contact {
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #ffad91, #f28bb2, #9b78c9);
+    }
+
+    .contact .label {
+      color: white;
+    }
+
+    .contact p {
+      margin-bottom: 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: var(--dark);
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        justify-content: center;
+      }
+
+      nav ul {
+        justify-content: center;
+        gap: 13px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+
+      .sun {
+        width: 140px;
+        height: 140px;
+        left: calc(50% - 70px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#home" class="logo">Elyssa's Portfolio ☀</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#future">Future</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="sun"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Senior Year · Class of 2027</p>
+      <h1>Growing Into<br>My Future.</h1>
+      <p>
+        Welcome to my senior portfolio! Explore my projects,
+        discover my skills, and follow my journey as I prepare
+        for the next chapter of my life.
+      </p>
+      <a class="button" href="#about">Get to Know Me ↓</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="about" id="about">
+      <p class="label">A Little About Me</p>
+      <h2 class="heading">Hi, I'm Elyssa! 🌅</h2>
+
+      <div class="about-box">
+        <p>
+          I'm a high school student interested in technology,
+          coding, design, and creative problem-solving.
+          I enjoy turning ideas into projects and learning
+          new skills along the way.
+        </p>
+        <p>
+          I'm especially interested in cybersecurity because
+          I want to learn how to protect people and their
+          information online. I want to keep growing,
+          challenge myself, and prepare for my future career.
+        </p>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <p class="label">My Work</p>
+      <h2 class="heading">Projects I've Worked On ✨</h2>
+      <p class="description">
+        These projects reflect my interests, creativity,
+        and experience learning about technology.
+      </p>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-icon">👗</div>
+          <h3>FashionInsta</h3>
+          <p>
+            A digital closet app concept that helps users
+            organize clothes, plan outfits, and decide what
+            to wear more easily.
+          </p>
+          <span class="tag">App Design</span>
+          <span class="tag">Problem Solving</span>
+          <br><br>
+          <a href="https://elyssab4.github.io/Automatic-Wardrobe-Digitization/"
+             target="_blank" rel="noopener noreferrer">
+            View Project ↗
+          </a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-icon">💻</div>
+          <h3>Web Development</h3>
+          <p>
+            Practicing HTML, CSS, and JavaScript to create
+            websites and learn how to improve user experiences.
+          </p>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </article>
+
+        <article class="project-card">
+          <div class="project-icon">🔐</div>
+          <h3>Cybersecurity Research</h3>
+          <p>
+            Exploring login protection, online safety,
+            accessibility, and ways to keep users'
+            information secure.
+          </p>
+          <span class="tag">Research</span>
+          <span class="tag">Security</span>
+        </article>
+
+        <article class="project-card">
+          <div class="project-icon">🎮</div>
+          <h3>Game Development</h3>
+          <p>
+            Exploring game design, interactive experiences,
+            and how technology can bring creative ideas to life.
+          </p>
+          <span class="tag">Design</span>
+          <span class="tag">Creativity</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="skills" id="skills">
+      <p class="label">What I'm Learning</p>
+      <h2 class="heading">My Skills & Interests</h2>
+      <p class="description">
+        I'm continuing to develop my technical and creative skills
+        through school assignments and personal projects.
+      </p>
+
+      <div class="skill-list">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">VS Code</span>
+        <span class="skill">Web Design</span>
+        <span class="skill">Cybersecurity</span>
+        <span class="skill">Research</span>
+        <span class="skill">Teamwork</span>
+        <span class="skill">Problem Solving</span>
+      </div>
+    </section>
+
+    <section class="future" id="future">
+      <p class="label">The Next Chapter</p>
+      <h2 class="heading">My Future Goals 🌇</h2>
+      <p>
+        As I prepare to graduate, I want to continue my education,
+        improve my coding skills, and explore career opportunities
+        in technology.
+      </p>
+      <p>
+        I'm particularly interested in cybersecurity and learning
+        how to make technology safer and more accessible.
+        This portfolio is a reminder of what I've learned
+        and what I can accomplish next.
+      </p>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="label">Thank You for Visiting</p>
+      <h2 class="heading">Every Sunset Starts a New Chapter.</h2>
+      <p>
+        Thanks for taking the time to explore my portfolio!
+      </p>
+      <a class="button"
+         href="https://github.com/elyssab4"
+         target="_blank" rel="noopener noreferrer">
+        Visit My GitHub ↗
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with creativity and a little sunshine ☀</p>
+    <p>© 2026 Elyssa · Senior Portfolio</p>
+  </footer>
+
+</body>
+</html>
